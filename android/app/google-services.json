@@ -1,0 +1,90 @@
+{
+  "project_info": {
+    "project_number": "1027651980687",
+    "project_id": "flutterapp-b526e",
+    "storage_bucket": "flutterapp-b526e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1027651980687:android:d1c5ca0e8a4345f6114ffa",
+        "android_client_info": {
+          "package_name": "com.flutter.miapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1027651980687-0s0ko16vg1j8cvaktjsmot70p5csilku.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXirpRKVp3CvVSVxAgUANjavr1X55pabU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1027651980687-0s0ko16vg1j8cvaktjsmot70p5csilku.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1027651980687-k4hqmgb954hd2ku9p9s5a7st7gjlc6vh.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.gtkFlutter"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1027651980687:android:811d7119ba209ebb114ffa",
+        "android_client_info": {
+          "package_name": "com.tasker.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1027651980687-le47nc0netj0s1m2toglav4mfap1l16l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tasker.app",
+            "certificate_hash": "6420f28ce07c6e25a084fef52fae46ba4516f8e6"
+          }
+        },
+        {
+          "client_id": "1027651980687-0s0ko16vg1j8cvaktjsmot70p5csilku.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXirpRKVp3CvVSVxAgUANjavr1X55pabU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1027651980687-0s0ko16vg1j8cvaktjsmot70p5csilku.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1027651980687-k4hqmgb954hd2ku9p9s5a7st7gjlc6vh.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.gtkFlutter"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
