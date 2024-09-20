@@ -21,6 +21,11 @@ class AuthService {
     }
   }
 
+  Future<bool> isAuthenticated() async {
+    final user = FirebaseAuth.instance.currentUser;
+    return user != null;
+  }
+
   Future<User?> signInWithGoogle(BuildContext context) async {
     try {
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();

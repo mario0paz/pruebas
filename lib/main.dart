@@ -11,8 +11,8 @@ import 'package:uuid/uuid.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  // NotificationService.initializeTimeZone();
-  // await NotificationService.initNotifications();
+  NotificationService.initializeTimeZone();
+  await NotificationService.initNotifications();
   ActivityService activityService = ActivityService();
   activityService.enableOfflinePersistence();
   runApp(MultiProvider(providers: [
@@ -34,12 +34,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final themeProvider = Provider.of<StorageProvider>(context); 
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-       themeMode: themeProvider.themeMode, 
-      theme: ThemeData.light(),           
-      darkTheme: ThemeData.dark(),        
       routerConfig: router,
     );
   }

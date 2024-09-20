@@ -41,3 +41,6 @@ flutter:
     - assets/icons/settings.png
     - assets/icons/what.png
     - assets/icons/settings_icon.png
+    - assets/icons/background_login.jpg
+    - assets/icons/google_icon.png
+    - assets/icons/logo.png

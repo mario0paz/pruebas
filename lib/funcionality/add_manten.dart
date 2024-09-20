@@ -168,6 +168,7 @@ class _AddMantenState extends State<AddManten> {
                   child: ElevatedButton(
                     onPressed: () async {
                       await _addNewMantinience();
+                      // ignore: use_build_context_synchronously
                       context.goNamed('home');
                     },
                     style: ElevatedButton.styleFrom(

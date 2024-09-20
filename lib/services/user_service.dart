@@ -24,7 +24,7 @@ class UserService {
         if (doc.exists) {
           return UserModel.fromJson(doc.data() as Map<String, dynamic>);
         } else {
-          return null; // Usuario no encontrado
+          return null;
         }
       } else {
         throw Exception("User not authenticated");

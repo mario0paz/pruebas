@@ -1,8 +1,8 @@
 class UserModel {
   final String id;
-  final String name;
-  final String email;
-  final String photoUrl;
+  String name;
+  String email;
+  String photoUrl;
 
   UserModel({
     required this.id,

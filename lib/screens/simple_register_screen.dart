@@ -58,6 +58,7 @@ class _SimpleRegisterScreenState extends State<SimpleRegisterScreen> {
       try {
         setState(() => isLoading = true);
         await AuthService().signInWithEmail(email, password);
+        // ignore: use_build_context_synchronously
         context.go('/maintenance');
       } catch (e) {
         setState(() {

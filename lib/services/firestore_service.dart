@@ -112,4 +112,25 @@ class ActivityService {
       throw Exception("Error fetching user activity: $error");
     }
   }
+
+  Future<void> updateActivityPending(String activityId, bool isPending) async {
+    try {
+      String? userId = _auth.currentUser?.uid;
+      if (userId != null) {
+        DocumentReference docRef =
+            _firestore.collection('activities').doc(activityId);
+        DocumentSnapshot docSnapshot = await docRef.get();
+
+        if (docSnapshot.exists && (docSnapshot['userId'] == userId)) {
+          await docRef.update({'isPending': isPending});
+        } else {
+          throw Exception("No permission to update this activity");
+        }
+      } else {
+        throw Exception("User not authenticated");
+      }
+    } catch (error) {
+      throw Exception("Error updating user activity: $error");
+    }
+  }
 }

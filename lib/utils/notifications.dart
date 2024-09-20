@@ -7,7 +7,7 @@ class NotificationService {
   // Inicializa el sistema de notificaciones.
   static Future<void> initNotifications() async {
     AwesomeNotifications().initialize(
-      'resource://drawable/res_app_icon', // Cambia esto si es necesario
+      null, // Cambia esto si es necesario
       [
         NotificationChannel(
           channelKey: 'maintenance_channel',
@@ -15,9 +15,25 @@ class NotificationService {
           channelDescription: 'Recordatorios de mantenimiento',
           defaultColor: const Color(0xFF9D50DD),
           ledColor: Colors.white,
-        )
+          importance: NotificationImportance.High, // Alta prioridad
+          playSound: false, // Sonido personalizado opcional
+          vibrationPattern:
+              highVibrationPattern, // Patrón de vibración personalizado
+        ),
       ],
     );
+
+    // Solicita permisos si no han sido concedidos
+    await checkAndRequestNotificationPermissions();
+  }
+
+  // Función para verificar y solicitar permisos de notificaciones.
+  static Future<void> checkAndRequestNotificationPermissions() async {
+    bool isAllowed = await AwesomeNotifications().isNotificationAllowed();
+    if (!isAllowed) {
+      // Solicita los permisos
+      await AwesomeNotifications().requestPermissionToSendNotifications();
+    }
   }
 
   // Inicializa las zonas horarias.
@@ -26,11 +42,11 @@ class NotificationService {
   }
 
   // Función para programar una notificación.
-  static Future<void> scheduleNotification(
-      DateTime scheduledDate, String title, String body) async {
+  static Future<void> scheduleNotification(DateTime scheduledDate, String title,
+      String body, int notificationId) async {
     AwesomeNotifications().createNotification(
       content: NotificationContent(
-        id: 0, // ID de la notificación
+        id: notificationId, // ID único para cada notificación
         channelKey: 'maintenance_channel', // Canal de notificación
         title: title, // Título de la notificación
         body: body, // Cuerpo de la notificación
@@ -44,8 +60,7 @@ class NotificationService {
         second: scheduledDate.second,
         millisecond: scheduledDate.millisecond,
         timeZone: tz.local.name,
-        preciseAlarm:
-            true, // Permite que la notificación se dispare con precisión
+        preciseAlarm: true, // Permite notificaciones precisas
       ),
     );
   }

@@ -2,7 +2,6 @@ import 'package:equipo5/models/user_model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../services/user_service.dart';
-import 'package:flutter/material.dart';
 
 class StorageProvider with ChangeNotifier {
   String? _name;
@@ -49,15 +48,6 @@ class StorageProvider with ChangeNotifier {
     _name = null;
     _photoUrl = null;
     _email = null;
-    notifyListeners();
-  }
-
-  ThemeMode _themeMode = ThemeMode.light;
-
-  ThemeMode get themeMode => _themeMode;
-
-  void toggleTheme(bool isDarkMode) {
-    _themeMode = isDarkMode ? ThemeMode.dark : ThemeMode.light;
     notifyListeners();
   }
 }

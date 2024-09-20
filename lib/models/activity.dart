@@ -3,8 +3,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class Activity {
   final String id;
   final String userId;
-  final String name;
-  final String description;
+  String name;
+  String description;
   final String category;
   final int rating;
   final int price;
@@ -64,5 +64,52 @@ class Activity {
       'tags': tags,
       'isPending': isPending,
     };
+  }
+
+  factory Activity.empty() {
+    return Activity(
+      id: '',
+      userId: '',
+      category: '',
+      tags: [],
+      location: [],
+      price: 0,
+      rating: 0,
+      startTimes: 0,
+      name: 'Cargando...',
+      description: '',
+      lastPerformed:
+          DateTime.now(), // Puedes usar un valor predeterminado o nulo
+      nextReminder: DateTime.now(), // Lo mismo aquí
+    );
+  }
+  Activity copyWith({
+    String? id,
+    String? userId,
+    String? name,
+    String? description,
+    String? category,
+    int? rating,
+    int? price,
+    int? startTimes,
+    DateTime? lastPerformed,
+    DateTime? nextReminder,
+    List<String>? location,
+    List<String>? tags,
+  }) {
+    return Activity(
+      id: id ?? this.id,
+      userId: userId ?? this.userId,
+      name: name ?? this.name,
+      description: description ?? this.description,
+      category: category ?? this.category,
+      rating: rating ?? this.rating,
+      price: price ?? this.price,
+      startTimes: startTimes ?? this.startTimes,
+      lastPerformed: lastPerformed ?? this.lastPerformed,
+      nextReminder: nextReminder ?? this.nextReminder,
+      location: location ?? this.location,
+      tags: tags ?? this.tags,
+    );
   }
 }
