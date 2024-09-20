@@ -1,9 +1,11 @@
 import 'package:equipo5/services/auth_service.dart';
 import 'package:equipo5/services/user_service.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../components/multi_componentes.dart';
 import 'package:go_router/go_router.dart';
 import '../models/user_model.dart';
+import '../provider/storage_provider.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -113,6 +115,16 @@ class _SettingsPageState extends State<SettingsPage> {
                         ),
                       ),
                     ],
+                  ),
+                  const Divider(),
+                  // Cambiar tema 
+                  SwitchListTile(
+                    title: const Text('Modo oscuro'),
+                    value: storageProvider.themeMode == ThemeMode.dark,
+                    onChanged: (bool value) {
+                      storageProvider.toggleTheme(value);
+                    },
+                    secondary: const Icon(Icons.dark_mode),
                   ),
                   const Divider(),
                   // Notificaciones

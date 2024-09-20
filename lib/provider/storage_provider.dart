@@ -1,6 +1,7 @@
 import 'package:equipo5/models/user_model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import '../services/user_service.dart';
 
 class StorageProvider with ChangeNotifier {
@@ -12,6 +13,12 @@ class StorageProvider with ChangeNotifier {
   String? get name => _name;
   String? get photoUrl => _photoUrl;
   String? get email => _email;
+
+  
+  void toggleTheme(bool isDarkMode) {
+    _themeMode = isDarkMode ? ThemeMode.dark : ThemeMode.light;
+    notifyListeners(); 
+  }
 
   Future<void> saveUserData() async {
     final User? user = FirebaseAuth.instance.currentUser;
